@@ -20,5 +20,37 @@
         <c:if test="$(flag)" >
             El flag es verdadero.
         </c:if>
+        <!-- Comprobamos el valor del parametro opcion 
+        que nos han pasado por la URL-->
+        <c:if test="${param.opcion} != null" >
+            <c:choose >
+                <c:when test="${param.opcion == 1}">
+                    La opcion seleccionada por el usuario es la 1.
+                </c:when>
+                <c:when test="${param.opcion == 2}">
+                    <br/>
+                    La opcion seleccionada por el usuario es la 2.
+                </c:when>
+                <c:otherwise>
+                    <br/>
+                    Opcion proporcionada desconocida: ${param.opcion}
+                </c:otherwise>
+            </c:choose>
+        </c:if>
+        <!-- Vamos a trabajar con un Array--> 
+        <%
+            String nombres[] = {"Luis", "Marta", "Lucia"};
+            request.setAttribute("nombres", nombres);
+
+        %>
+        <br/>
+        <!-- Listamos los nombres -->
+        <ul>
+            <c:forEach var="persona" items="${nombres}">
+                <li>Nombre: ${persona}</li>
+                </c:forEach>
+        </ul>
+
+
     </body>
 </html>
