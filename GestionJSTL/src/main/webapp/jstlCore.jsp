@@ -17,12 +17,12 @@
         <c:out value="<h4>Hola clase!</h4>" escapeXml="false"/>
         <!-- Añadimos un flag par incluir el codigo condicional-->
         <c:set var="flag" value="true" />
-        <c:if test="$(flag)" >
+        <c:if test="${flag}" >
             El flag es verdadero.
         </c:if>
         <!-- Comprobamos el valor del parametro opcion 
         que nos han pasado por la URL-->
-        <c:if test="${param.opcion} != null" >
+        <c:if test="${param.opcion != null}">
             <c:choose >
                 <c:when test="${param.opcion == 1}">
                     La opcion seleccionada por el usuario es la 1.
